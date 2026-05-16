@@ -25,11 +25,13 @@ await test("BraveSearchProvider calls official Brave endpoint and parses web res
     );
   };
 
-  const provider = new BraveSearchProvider("secret", fetchImpl as typeof fetch);
+  const provider = new BraveSearchProvider("secret", { count: 20, freshness: "pd" }, fetchImpl as typeof fetch);
   const response = await provider.search('site:x.com/thsottiaux/status Codex "usage limits" reset');
 
   assert.equal(token, "secret");
   assert.match(calledUrl, /^https:\/\/api\.search\.brave\.com\/res\/v1\/web\/search/);
+  assert.match(calledUrl, /count=20/);
+  assert.match(calledUrl, /freshness=pd/);
   assert.equal(response.provider, "brave");
   assert.equal(response.results[0]?.snippet, "Codex limits have been reset.");
 });

@@ -78,7 +78,7 @@ export async function runWatch(args: {
     }
   }
 
-  const candidates = [...byId.values()].sort((a, b) => comparePostIds(a.id, b.id));
+  const candidates = [...byId.values()].sort((a, b) => comparePostIds(b.id, a.id));
   let classified = 0;
   let notificationsSent = 0;
   let suppressed = 0;

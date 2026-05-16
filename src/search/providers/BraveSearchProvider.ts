@@ -17,10 +17,19 @@ type BraveWebResponse = {
   };
 };
 
+export type BraveSearchOptions = {
+  count: number;
+  freshness?: string;
+};
+
 export class BraveSearchProvider implements SearchProvider {
   readonly name = "brave";
 
-  constructor(private readonly apiKey: string, private readonly fetchImpl: typeof fetch = fetch) {
+  constructor(
+    private readonly apiKey: string,
+    private readonly options: BraveSearchOptions,
+    private readonly fetchImpl: typeof fetch = fetch,
+  ) {
     if (!apiKey) {
       throw new Error("BRAVE_SEARCH_API_KEY is required when using the Brave search provider.");
     }
@@ -29,9 +38,12 @@ export class BraveSearchProvider implements SearchProvider {
   async search(query: string): Promise<SearchResponse> {
     const url = new URL(BRAVE_WEB_SEARCH_URL);
     url.searchParams.set("q", query);
-    url.searchParams.set("count", "10");
+    url.searchParams.set("count", String(this.options.count));
     url.searchParams.set("search_lang", "en");
     url.searchParams.set("safesearch", "off");
+    if (this.options.freshness) {
+      url.searchParams.set("freshness", this.options.freshness);
+    }
 
     const response = await this.fetchImpl(url, {
       headers: {

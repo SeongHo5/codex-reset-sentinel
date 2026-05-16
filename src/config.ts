@@ -1,3 +1,5 @@
+import { normalizeAlertLocale, type AlertLocale } from "./notify/messages.js";
+
 export type Config = {
   searchProvider: "brave" | "fixture";
   braveApiKey?: string;
@@ -5,6 +7,9 @@ export type Config = {
   statePath: string;
   dryRun: boolean;
   mockSearchFixture?: string;
+  searchCount: number;
+  searchFreshness?: string;
+  alertLocale: AlertLocale;
 };
 
 export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
@@ -24,6 +29,8 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
     throw new Error("DISCORD_WEBHOOK_URL is required unless DRY_RUN=1.");
   }
 
+  const searchCount = parsePositiveInt(env.SEARCH_COUNT, 20);
+
   return {
     searchProvider,
     braveApiKey: env.BRAVE_SEARCH_API_KEY,
@@ -31,5 +38,14 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
     statePath: env.STATE_PATH ?? ".state/codex-limit-watch.json",
     dryRun,
     mockSearchFixture,
+    searchCount,
+    searchFreshness: env.SEARCH_FRESHNESS ?? "pd",
+    alertLocale: normalizeAlertLocale(env.ALERT_LOCALE),
   };
+}
+
+function parsePositiveInt(value: string | undefined, fallback: number): number {
+  if (!value) return fallback;
+  const parsed = Number.parseInt(value, 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
 }

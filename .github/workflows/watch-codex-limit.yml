@@ -2,7 +2,7 @@ name: Watch Codex limit updates
 
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 
 permissions:
@@ -39,6 +39,9 @@ jobs:
       - name: Run watcher
         env:
           SEARCH_PROVIDER: brave
+          SEARCH_FRESHNESS: pd
+          SEARCH_COUNT: "20"
+          ALERT_LOCALE: ko
           BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: npm run watch
@@ -52,6 +55,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .state/codex-limit-watch.json
+          # Automated state commits use medium confidence because live search freshness and Discord delivery
+          # depend on external services even when local tests and workflow steps pass.
           git commit -m "Persist codex limit sentinel search state after polling" \
             -m "Constraint: GitHub Actions owns repo state commits; the Node app only writes JSON state." \
             -m "Confidence: medium" \

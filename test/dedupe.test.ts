@@ -23,6 +23,8 @@ await test("watch sends one actionable notification and dedupes second run", asy
       statePath,
       dryRun: true,
       mockSearchFixture: "test/fixtures/search-results.json",
+      searchCount: 20,
+      alertLocale: "ko" as const,
     };
     const provider = new FixtureSearchProvider("test/fixtures/search-results.json");
     const notifier = new RecordingNotifier();
@@ -54,6 +56,8 @@ await test("notifier failure rejects and does not persist notified ID", async ()
       statePath,
       dryRun: true,
       mockSearchFixture: "test/fixtures/search-results.json",
+      searchCount: 20,
+      alertLocale: "ko" as const,
     };
     const provider = new FixtureSearchProvider("test/fixtures/search-results.json");
     await assert.rejects(
@@ -71,7 +75,7 @@ await test("query hits remain structured across duplicate query matches", async 
     const fixturePath = join(dir, "fixture.json");
     const statePath = join(dir, "state.json");
     const queryA = 'site:x.com/thsottiaux/status Codex "usage limits" reset';
-    const queryB = 'site:x.com/thsottiaux/status "GPT-5.5" Codex reset';
+    const queryB = 'site:x.com/thsottiaux/status "GPT-5.5 in Codex"';
     await import("node:fs/promises").then(({ writeFile }) => writeFile(fixturePath, JSON.stringify({
       provider: "fixture",
       responses: [
@@ -82,13 +86,42 @@ await test("query hits remain structured across duplicate query matches", async 
     const provider = new FixtureSearchProvider(fixturePath);
     const notifier = new RecordingNotifier();
     await runWatch({
-      config: { searchProvider: "fixture", statePath, dryRun: true, mockSearchFixture: fixturePath },
+      config: { searchProvider: "fixture", statePath, dryRun: true, mockSearchFixture: fixturePath, searchCount: 20, alertLocale: "ko" as const },
       searchProvider: provider,
       notifier,
       now: new Date("2026-05-16T12:00:00.000Z"),
     });
     const state = JSON.parse(await import("node:fs/promises").then(({ readFile }) => readFile(statePath, "utf8")));
     assert.deepEqual(new Set(state.sources["search:x-thsottiaux"].observedResults["42"].queryHits), new Set([queryA, queryB]));
+  } finally {
+    await rm(dir, { recursive: true, force: true });
+  }
+});
+
+await test("newer actionable candidates notify before older candidates", async () => {
+  const dir = await mkdtemp(join(tmpdir(), "codex-limit-sentinel-order-"));
+  try {
+    const fixturePath = join(dir, "fixture.json");
+    const statePath = join(dir, "state.json");
+    const query = 'site:x.com/thsottiaux/status "I will reset usage limits this evening"';
+    await import("node:fs/promises").then(({ writeFile }) => writeFile(fixturePath, JSON.stringify({
+      provider: "fixture",
+      responses: [
+        { query, results: [
+          { title: "Older: I will reset usage limits", url: "https://x.com/thsottiaux/status/41", snippet: "I will reset usage limits for Codex." },
+          { title: "Newer: I will reset usage limits", url: "https://x.com/thsottiaux/status/42", snippet: "I will reset usage limits for Codex." },
+        ] },
+      ],
+    })));
+    const provider = new FixtureSearchProvider(fixturePath);
+    const notifier = new RecordingNotifier();
+    await runWatch({
+      config: { searchProvider: "fixture", statePath, dryRun: true, mockSearchFixture: fixturePath, searchCount: 20, alertLocale: "ko" as const },
+      searchProvider: provider,
+      notifier,
+      now: new Date("2026-05-16T12:00:00.000Z"),
+    });
+    assert.deepEqual(notifier.sent.map((notification) => notification.candidate.id), ["42", "41"]);
   } finally {
     await rm(dir, { recursive: true, force: true });
   }

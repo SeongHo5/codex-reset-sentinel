@@ -8,7 +8,7 @@ import { runWatch } from "./run/watch.js";
 async function main(): Promise<void> {
   const config = loadConfig();
   const searchProvider = createSearchProvider(config);
-  const notifier = config.dryRun ? new DryRunNotifier() : new DiscordNotifier(config.discordWebhookUrl!);
+  const notifier = config.dryRun ? new DryRunNotifier(config.alertLocale) : new DiscordNotifier(config.discordWebhookUrl!, config.alertLocale);
   const summary = await runWatch({ config, searchProvider, notifier });
   console.log(JSON.stringify({ ok: true, summary }, null, 2));
 }
@@ -17,7 +17,7 @@ function createSearchProvider(config: ReturnType<typeof loadConfig>): SearchProv
   if (config.searchProvider === "fixture") {
     return new FixtureSearchProvider(config.mockSearchFixture!);
   }
-  return new BraveSearchProvider(config.braveApiKey!);
+  return new BraveSearchProvider(config.braveApiKey!, { count: config.searchCount, freshness: config.searchFreshness });
 }
 
 main().catch((error: unknown) => {

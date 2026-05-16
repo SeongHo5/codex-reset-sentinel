@@ -6,7 +6,7 @@ It does **not** call the X API, fetch `x.com` pages, scrape X, or scrape search-
 
 ## MVP behavior
 
-- Runs every 10 minutes via GitHub Actions and supports manual `workflow_dispatch`.
+- Runs every 6 hours by default via GitHub Actions and supports manual `workflow_dispatch`. This default is quota-aware: a real test run used about 0.6% of the monthly Brave quota, so 10-minute polling would exhaust the month quickly and 4-hour polling may leave too little safety margin.
 - Uses Brave Search API as the default official Search API provider.
 - Monitors only Tibo (`@thsottiaux`) status URLs.
 - Sends Discord alerts for:
@@ -19,12 +19,30 @@ It does **not** call the X API, fetch `x.com` pages, scrape X, or scrape search-
 - Stores canonical state in `.state/codex-limit-watch.json`.
 - Lets the workflow commit state; the Node app never runs `git commit` or `git push`.
 
+## Schedule and quota
+
+The default workflow schedule is:
+
+```yaml
+- cron: '0 */6 * * *'
+```
+
+With the default 5-query plan, this is roughly 600 Search API requests per 30-day month. If one real workflow run costs about 0.6% of the monthly Brave quota, 6-hour polling is about 72% per 30-day month before manual runs. If your Brave plan/quota differs, tune the cron interval or query plan before enabling the workflow. Use `workflow_dispatch` for urgent manual checks.
+
 ## Required GitHub secrets
 
 | Secret | Purpose |
 | --- | --- |
 | `BRAVE_SEARCH_API_KEY` | API key for Brave Search API. |
 | `DISCORD_WEBHOOK_URL` | Discord webhook for actionable notifications. |
+
+Optional workflow env:
+
+| Env | Default | Purpose |
+| --- | --- | --- |
+| `SEARCH_FRESHNESS` | `pd` | Brave freshness filter; `pd` means past day. |
+| `SEARCH_COUNT` | `20` | Web results requested per query. Count does not reduce request count. |
+| `ALERT_LOCALE` | `ko` | Discord message locale. Currently `ko` and `en` are supported. |
 
 The workflow also requires:
 
@@ -82,7 +100,7 @@ The source boundary is intentionally narrow:
 - no search-result HTML scraping;
 - official Search API provider responses only.
 
-The default provider is Brave Search API. Brave documents a web search endpoint using an API key header and describes Brave Search as powered by its own independent index. Brave also documents API pricing/plans and storage-rights considerations; this project stores only minimal evidence metadata rather than raw API payloads.
+The default provider is Brave Search API. The workflow sets `SEARCH_FRESHNESS=pd` and `SEARCH_COUNT=20` to bias results toward recent indexed posts while keeping the request count controlled by the fixed query list. Brave documents a web search endpoint using an API key header and describes Brave Search as powered by its own independent index. Brave also documents API pricing/plans and storage-rights considerations; this project stores only minimal evidence metadata rather than raw API payloads.
 
 Provider notes to re-check before changing defaults:
 
