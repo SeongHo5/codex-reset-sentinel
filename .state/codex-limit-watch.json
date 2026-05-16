@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-16T14:47:32.867Z",
+  "updatedAt": "2026-05-16T14:59:39.730Z",
   "sources": {
     "search:x-thsottiaux": {
       "type": "official-search-api",
@@ -13,7 +13,7 @@
         "site:x.com/thsottiaux/status \"reset its own rate limits\" OR site:x.com/thsottiaux/status \"reset rate limits across all plans\" OR site:x.com/thsottiaux/status \"allowed Codex to reset\"",
         "site:x.com/thsottiaux/status \"reset Codex rate limits\" OR site:x.com/thsottiaux/status \"have reset Codex rate limits\" OR site:x.com/thsottiaux/status \"Codex rate limits for ALL paid plans\""
       ],
-      "lastCheckedAt": "2026-05-16T14:47:32.867Z",
+      "lastCheckedAt": "2026-05-16T14:59:39.730Z",
       "observedResults": {
         "1968689722483466472": {
           "canonicalUrl": "https://x.com/thsottiaux/status/1968689722483466472",
