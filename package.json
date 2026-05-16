@@ -1,0 +1,21 @@
+{
+  "name": "codex-limit-sentinel",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "GitHub Actions monitor for Codex usage-limit reset announcements via official Search APIs.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "node scripts/lint.mjs",
+    "test": "npm run build && node --test dist/test/**/*.test.js",
+    "watch": "node dist/src/index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  }
+}

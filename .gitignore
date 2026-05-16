@@ -1,0 +1,18 @@
+node_modules/
+dist/
+
+### Env ###
+.env
+.env.*
+!.env.example
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+
+### Misc ###
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store

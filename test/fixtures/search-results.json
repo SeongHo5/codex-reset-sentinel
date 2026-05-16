@@ -1,0 +1,22 @@
+{
+  "provider": "fixture",
+  "results": [
+    {
+      "title": "Tibo on X: I will reset usage limits this evening for Codex",
+      "url": "https://x.com/thsottiaux/status/2055446089957036402?ref=search",
+      "snippet": "Fixed a couple GPT-5.5 in Codex degradation issues. I will reset usage limits this evening after monitoring.",
+      "providerDate": "2026-05-16"
+    },
+    {
+      "title": "Tibo on X: investigating Codex degradation",
+      "url": "https://x.com/thsottiaux/status/2055446089957036401",
+      "snippet": "We are investigating Codex degradation and will share more later.",
+      "providerDate": "2026-05-16"
+    },
+    {
+      "title": "Other status",
+      "url": "https://x.com/someone/status/2055446089957036400",
+      "snippet": "Codex reset unrelated"
+    }
+  ]
+}
