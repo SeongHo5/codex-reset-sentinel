@@ -9,6 +9,7 @@ export type Config = {
   mockSearchFixture?: string;
   searchCount: number;
   searchFreshness?: string;
+  searchExtraSnippets: boolean;
   alertLocale: AlertLocale;
 };
 
@@ -40,6 +41,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
     mockSearchFixture,
     searchCount,
     searchFreshness: env.SEARCH_FRESHNESS ?? "pw",
+    searchExtraSnippets: parseBoolean(env.SEARCH_EXTRA_SNIPPETS, true),
     alertLocale: normalizeAlertLocale(env.ALERT_LOCALE),
   };
 }
@@ -48,4 +50,12 @@ function parsePositiveInt(value: string | undefined, fallback: number): number {
   if (!value) return fallback;
   const parsed = Number.parseInt(value, 10);
   return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
+}
+
+function parseBoolean(value: string | undefined, fallback: boolean): boolean {
+  if (!value) return fallback;
+  const normalized = value.trim().toLowerCase();
+  if (["1", "true", "yes", "on"].includes(normalized)) return true;
+  if (["0", "false", "no", "off"].includes(normalized)) return false;
+  return fallback;
 }

@@ -35,9 +35,9 @@ The default query plan is phrase-led rather than topic-led. It targets reset ann
 - `"reset the rate limits"`
 - `"rate limit reset incoming"`
 - `"reset its own rate limits"`
-- `Codex reset limits` as a broad catch-all
+- `"reset Codex rate limits"`, plus same-query OR variants such as `"have reset Codex rate limits"`
 
-This keeps the request count at five searches per run while improving recall for celebration, incident, anniversary, and GPT-5.5 degradation reset posts.
+This keeps the request count at five searches per run while improving recall for celebration, incident, anniversary, and GPT-5.5 degradation reset posts. OR variants inside one query do not add Search API requests; only the fixed query count controls request volume.
 
 ## Required GitHub secrets
 
@@ -52,6 +52,7 @@ Optional workflow env:
 | --- | --- | --- |
 | `SEARCH_FRESHNESS` | `pw` | Brave freshness filter; `pw` means past week. This is wider than `pd` because X status page dates can be inconsistently interpreted by search indexing. |
 | `SEARCH_COUNT` | `20` | Web results requested per query. Count does not reduce request count. |
+| `SEARCH_EXTRA_SNIPPETS` | `true` | Requests Brave alternative excerpts for each result. This can improve classification evidence without adding query requests. |
 | `ALERT_LOCALE` | `ko` | Discord message locale. Currently `ko` and `en` are supported. |
 
 The workflow also requires:

@@ -41,12 +41,17 @@ await test("classifies known Tibo reset announcement phrases", () => {
     ["Happy Tuesday. Codex has hit 4M active users. To celebrate we will reset the rate limits again in a few hours. Enjoy!", "RESET_PLANNED"],
     ["Codex incident is mitigated. Apologies for the disruption and rate limit reset incoming.", "RESET_PLANNED"],
     ["Hi! To celebrate its 1-year anniversary, I have allowed Codex to reset its own rate limits across all plans. Enjoy all the new features.", "RESET_DONE"],
+    ["I have reset Codex rate limits for ALL paid plans to celebrate a good week and allow everyone to build more with GPT-5.5. Enjoy", "RESET_DONE"],
     ["We are monitoring over the coming hours to fully confirm and I will reset usage limits this evening.", "RESET_PLANNED"],
   ] as const;
 
   for (const [text, expected] of samples) {
     assert.equal(classifySearchResult(candidate(text)).eventType, expected, text);
   }
+});
+
+await test("does not alert on non-actionable reset-cost commentary", () => {
+  assert.equal(classifySearchResult(candidate("Don't just reset Codex rate limits for fun, it costs money.")).eventType, "RELATED_NO_ACTION");
 });
 
 await test("suppresses related no-action snippet", () => {

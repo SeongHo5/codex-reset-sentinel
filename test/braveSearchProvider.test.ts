@@ -16,6 +16,7 @@ await test("BraveSearchProvider calls official Brave endpoint and parses web res
               title: "Tibo on X: Codex limits have been reset",
               url: "https://x.com/thsottiaux/status/2055446089957036402",
               description: "Codex limits have been reset.",
+              extra_snippets: ["I have reset Codex rate limits for all paid plans."],
               age: "2026-05-16",
             },
           ],
@@ -25,7 +26,7 @@ await test("BraveSearchProvider calls official Brave endpoint and parses web res
     );
   };
 
-  const provider = new BraveSearchProvider("secret", { count: 20, freshness: "pw" }, fetchImpl as typeof fetch);
+  const provider = new BraveSearchProvider("secret", { count: 20, freshness: "pw", extraSnippets: true }, fetchImpl as typeof fetch);
   const response = await provider.search('site:x.com/thsottiaux/status Codex "usage limits" reset');
 
   assert.equal(token, "secret");
@@ -35,6 +36,7 @@ await test("BraveSearchProvider calls official Brave endpoint and parses web res
   assert.match(calledUrl, /result_filter=web/);
   assert.match(calledUrl, /operators=true/);
   assert.match(calledUrl, /spellcheck=false/);
+  assert.match(calledUrl, /extra_snippets=true/);
   assert.equal(response.provider, "brave");
-  assert.equal(response.results[0]?.snippet, "Codex limits have been reset.");
+  assert.equal(response.results[0]?.snippet, "Codex limits have been reset. … I have reset Codex rate limits for all paid plans.");
 });

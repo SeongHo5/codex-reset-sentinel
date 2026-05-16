@@ -14,5 +14,9 @@ await test("query plan covers known reset announcement phrase patterns", () => {
   assert.match(joined, /reset the rate limits/);
   assert.match(joined, /rate limit reset incoming/);
   assert.match(joined, /reset its own rate limits/);
-  assert.match(joined, /Codex reset limits/);
+  assert.match(joined, /reset Codex rate limits/);
+  assert.match(joined, /usage limits reset/);
+  assert.match(joined, /rate limits reset/);
+  assert.match(joined, /have reset Codex rate limits/);
+  assert.match(joined, /OR/);
 });

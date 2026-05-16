@@ -17,7 +17,7 @@ function createSearchProvider(config: ReturnType<typeof loadConfig>): SearchProv
   if (config.searchProvider === "fixture") {
     return new FixtureSearchProvider(config.mockSearchFixture!);
   }
-  return new BraveSearchProvider(config.braveApiKey!, { count: config.searchCount, freshness: config.searchFreshness });
+  return new BraveSearchProvider(config.braveApiKey!, { count: config.searchCount, freshness: config.searchFreshness, extraSnippets: config.searchExtraSnippets });
 }
 
 main().catch((error: unknown) => {

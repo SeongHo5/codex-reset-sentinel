@@ -9,6 +9,7 @@ type BraveWebResult = {
   description?: string;
   age?: string;
   page_age?: string;
+  extra_snippets?: string[];
 };
 
 type BraveWebResponse = {
@@ -20,6 +21,7 @@ type BraveWebResponse = {
 export type BraveSearchOptions = {
   count: number;
   freshness?: string;
+  extraSnippets: boolean;
 };
 
 export class BraveSearchProvider implements SearchProvider {
@@ -44,6 +46,9 @@ export class BraveSearchProvider implements SearchProvider {
     url.searchParams.set("result_filter", "web");
     url.searchParams.set("operators", "true");
     url.searchParams.set("spellcheck", "false");
+    if (this.options.extraSnippets) {
+      url.searchParams.set("extra_snippets", "true");
+    }
     if (this.options.freshness) {
       url.searchParams.set("freshness", this.options.freshness);
     }
@@ -67,7 +72,7 @@ export class BraveSearchProvider implements SearchProvider {
       .map((result) => ({
         title: result.title ?? "",
         url: result.url ?? "",
-        snippet: result.description ?? "",
+        snippet: mergeSnippets(result.description, result.extra_snippets),
         providerDate: result.age ?? result.page_age,
       }));
 
@@ -77,6 +82,11 @@ export class BraveSearchProvider implements SearchProvider {
       results,
     };
   }
+}
+
+function mergeSnippets(description: string | undefined, extraSnippets: string[] | undefined): string {
+  return [...new Set([description, ...(extraSnippets ?? [])].filter((snippet): snippet is string => Boolean(snippet?.trim())))]
+    .join(" … ");
 }
 
 async function safeBody(response: Response): Promise<string> {

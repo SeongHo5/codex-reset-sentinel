@@ -41,6 +41,7 @@ jobs:
           SEARCH_PROVIDER: brave
           SEARCH_FRESHNESS: pw
           SEARCH_COUNT: "20"
+          SEARCH_EXTRA_SNIPPETS: "true"
           ALERT_LOCALE: ko
           BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}

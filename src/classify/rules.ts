@@ -27,6 +27,8 @@ export const ACTION_PATTERNS = {
   RESET_DONE: [
     /limits? (?:have been |were |are )reset/i,
     /usage limits? reset(?:ted)?(?:[.!?]|$)/i,
+    /(?:i|we|team) have reset .*?(?:usage|rate) limits?/i,
+    /have reset .*?codex .*?(?:usage|rate) limits?/i,
     /reset (?:is )?complete/i,
     /allowed .*reset .*rate limits?/i,
     /reset .*rate limits? across all plans/i,
