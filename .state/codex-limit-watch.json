@@ -1,20 +1,19 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-16T13:35:50.168Z",
+  "updatedAt": "2026-05-16T13:57:43.170Z",
   "sources": {
     "search:x-thsottiaux": {
       "type": "official-search-api",
       "target": "x.com/thsottiaux/status",
       "provider": "brave",
       "queries": [
+        "site:x.com/thsottiaux/status \"I will reset usage limits this evening\"",
+        "site:x.com/thsottiaux/status \"GPT-5.5 in Codex\"",
         "site:x.com/thsottiaux/status Codex \"usage limits\" reset",
-        "site:x.com/thsottiaux/status \"GPT-5.5\" Codex reset",
         "site:x.com/thsottiaux/status Codex \"rate limits\" reset",
-        "site:x.com/thsottiaux/status Codex quota refresh",
-        "site:x.com/thsottiaux/status Codex \"weekly limits\"",
         "site:x.com/thsottiaux/status Codex \"/fast\""
       ],
-      "lastCheckedAt": "2026-05-16T13:35:50.168Z",
+      "lastCheckedAt": "2026-05-16T13:57:43.170Z",
       "observedResults": {
         "1968689722483466472": {
           "canonicalUrl": "https://x.com/thsottiaux/status/1968689722483466472",
