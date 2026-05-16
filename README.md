@@ -29,6 +29,16 @@ The default workflow schedule is:
 
 With the default 5-query plan, this is roughly 600 Search API requests per 30-day month. If one real workflow run costs about 0.6% of the monthly Brave quota, 6-hour polling is about 72% per 30-day month before manual runs. If your Brave plan/quota differs, tune the cron interval or query plan before enabling the workflow. Use `workflow_dispatch` for urgent manual checks.
 
+The default query plan is phrase-led rather than topic-led. It targets reset announcement wording observed in prior @thsottiaux posts:
+
+- `"reset usage limits"`
+- `"reset the rate limits"`
+- `"rate limit reset incoming"`
+- `"reset its own rate limits"`
+- `Codex reset limits` as a broad catch-all
+
+This keeps the request count at five searches per run while improving recall for celebration, incident, anniversary, and GPT-5.5 degradation reset posts.
+
 ## Required GitHub secrets
 
 | Secret | Purpose |
@@ -40,7 +50,7 @@ Optional workflow env:
 
 | Env | Default | Purpose |
 | --- | --- | --- |
-| `SEARCH_FRESHNESS` | `pd` | Brave freshness filter; `pd` means past day. |
+| `SEARCH_FRESHNESS` | `pw` | Brave freshness filter; `pw` means past week. This is wider than `pd` because X status page dates can be inconsistently interpreted by search indexing. |
 | `SEARCH_COUNT` | `20` | Web results requested per query. Count does not reduce request count. |
 | `ALERT_LOCALE` | `ko` | Discord message locale. Currently `ko` and `en` are supported. |
 
@@ -100,7 +110,7 @@ The source boundary is intentionally narrow:
 - no search-result HTML scraping;
 - official Search API provider responses only.
 
-The default provider is Brave Search API. The workflow sets `SEARCH_FRESHNESS=pd` and `SEARCH_COUNT=20` to bias results toward recent indexed posts while keeping the request count controlled by the fixed query list. Brave documents a web search endpoint using an API key header and describes Brave Search as powered by its own independent index. Brave also documents API pricing/plans and storage-rights considerations; this project stores only minimal evidence metadata rather than raw API payloads.
+The default provider is Brave Search API. The workflow sets `SEARCH_FRESHNESS=pw` and `SEARCH_COUNT=20` to bias results toward recent indexed posts while avoiding over-reliance on a 24-hour page-age interpretation. Request count is controlled by the fixed query list, not by `SEARCH_COUNT`. Brave documents a web search endpoint using an API key header and describes Brave Search as powered by its own independent index. Brave also documents API pricing/plans and storage-rights considerations; this project stores only minimal evidence metadata rather than raw API payloads.
 
 Provider notes to re-check before changing defaults:
 

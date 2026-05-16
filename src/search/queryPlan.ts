@@ -3,9 +3,9 @@ export const SOURCE_KEY = "search:x-thsottiaux";
 export const SEARCH_TARGET = "x.com/thsottiaux/status";
 
 export const DEFAULT_QUERIES = Object.freeze([
-  'site:x.com/thsottiaux/status "I will reset usage limits this evening"',
-  'site:x.com/thsottiaux/status "GPT-5.5 in Codex"',
-  'site:x.com/thsottiaux/status Codex "usage limits" reset',
-  'site:x.com/thsottiaux/status Codex "rate limits" reset',
-  'site:x.com/thsottiaux/status Codex "/fast"',
+  'site:x.com/thsottiaux/status "reset usage limits"',
+  'site:x.com/thsottiaux/status "reset the rate limits"',
+  'site:x.com/thsottiaux/status "rate limit reset incoming"',
+  'site:x.com/thsottiaux/status "reset its own rate limits"',
+  'site:x.com/thsottiaux/status Codex reset limits',
 ]);

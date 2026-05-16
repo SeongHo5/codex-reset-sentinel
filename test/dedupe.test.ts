@@ -74,8 +74,8 @@ await test("query hits remain structured across duplicate query matches", async 
   try {
     const fixturePath = join(dir, "fixture.json");
     const statePath = join(dir, "state.json");
-    const queryA = 'site:x.com/thsottiaux/status Codex "usage limits" reset';
-    const queryB = 'site:x.com/thsottiaux/status "GPT-5.5 in Codex"';
+    const queryA = 'site:x.com/thsottiaux/status "reset usage limits"';
+    const queryB = 'site:x.com/thsottiaux/status Codex reset limits';
     await import("node:fs/promises").then(({ writeFile }) => writeFile(fixturePath, JSON.stringify({
       provider: "fixture",
       responses: [
@@ -103,7 +103,7 @@ await test("newer actionable candidates notify before older candidates", async (
   try {
     const fixturePath = join(dir, "fixture.json");
     const statePath = join(dir, "state.json");
-    const query = 'site:x.com/thsottiaux/status "I will reset usage limits this evening"';
+    const query = 'site:x.com/thsottiaux/status "reset usage limits"';
     await import("node:fs/promises").then(({ writeFile }) => writeFile(fixturePath, JSON.stringify({
       provider: "fixture",
       responses: [

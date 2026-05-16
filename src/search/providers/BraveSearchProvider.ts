@@ -41,6 +41,9 @@ export class BraveSearchProvider implements SearchProvider {
     url.searchParams.set("count", String(this.options.count));
     url.searchParams.set("search_lang", "en");
     url.searchParams.set("safesearch", "off");
+    url.searchParams.set("result_filter", "web");
+    url.searchParams.set("operators", "true");
+    url.searchParams.set("spellcheck", "false");
     if (this.options.freshness) {
       url.searchParams.set("freshness", this.options.freshness);
     }

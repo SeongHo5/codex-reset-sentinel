@@ -39,7 +39,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
     dryRun,
     mockSearchFixture,
     searchCount,
-    searchFreshness: env.SEARCH_FRESHNESS ?? "pd",
+    searchFreshness: env.SEARCH_FRESHNESS ?? "pw",
     alertLocale: normalizeAlertLocale(env.ALERT_LOCALE),
   };
 }

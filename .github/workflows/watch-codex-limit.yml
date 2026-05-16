@@ -39,7 +39,7 @@ jobs:
       - name: Run watcher
         env:
           SEARCH_PROVIDER: brave
-          SEARCH_FRESHNESS: pd
+          SEARCH_FRESHNESS: pw
           SEARCH_COUNT: "20"
           ALERT_LOCALE: ko
           BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
