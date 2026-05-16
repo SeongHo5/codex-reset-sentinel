@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-16T14:59:39.730Z",
+  "updatedAt": "2026-05-16T15:06:50.220Z",
   "sources": {
     "search:x-thsottiaux": {
       "type": "official-search-api",
       "target": "x.com/thsottiaux/status",
       "provider": "brave",
       "queries": [
-        "site:x.com/thsottiaux/status \"reset usage limits\" OR site:x.com/thsottiaux/status \"usage limits reset\" OR site:x.com/thsottiaux/status \"reset Codex usage limits\"",
-        "site:x.com/thsottiaux/status \"reset the rate limits\" OR site:x.com/thsottiaux/status \"reset rate limits\" OR site:x.com/thsottiaux/status \"rate limits reset\"",
-        "site:x.com/thsottiaux/status \"rate limit reset incoming\" OR site:x.com/thsottiaux/status \"rate limits reset incoming\" OR site:x.com/thsottiaux/status \"reset incoming\"",
-        "site:x.com/thsottiaux/status \"reset its own rate limits\" OR site:x.com/thsottiaux/status \"reset rate limits across all plans\" OR site:x.com/thsottiaux/status \"allowed Codex to reset\"",
-        "site:x.com/thsottiaux/status \"reset Codex rate limits\" OR site:x.com/thsottiaux/status \"have reset Codex rate limits\" OR site:x.com/thsottiaux/status \"Codex rate limits for ALL paid plans\""
+        "site:x.com/thsottiaux/status Codex \"usage limits\" reset",
+        "site:x.com/thsottiaux/status Codex \"rate limits\" reset",
+        "site:x.com/thsottiaux/status \"reset Codex rate limits\"",
+        "site:x.com/thsottiaux/status \"I will reset usage limits\"",
+        "site:x.com/thsottiaux/status \"GPT-5.5\" Codex reset"
       ],
-      "lastCheckedAt": "2026-05-16T14:59:39.730Z",
+      "lastCheckedAt": "2026-05-16T15:06:50.220Z",
       "observedResults": {
         "1968689722483466472": {
           "canonicalUrl": "https://x.com/thsottiaux/status/1968689722483466472",
