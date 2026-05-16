@@ -26,6 +26,7 @@ await test("watch sends one actionable notification and dedupes second run", asy
       mockSearchFixture: "test/fixtures/search-results.json",
       searchCount: 20,
       searchExtraSnippets: true,
+      debugSearchResults: false,
       alertLocale: "ko" as const,
     };
     const provider = new FixtureSearchProvider("test/fixtures/search-results.json");
@@ -60,6 +61,7 @@ await test("notifier failure rejects and does not persist notified ID", async ()
       mockSearchFixture: "test/fixtures/search-results.json",
       searchCount: 20,
       searchExtraSnippets: true,
+      debugSearchResults: false,
       alertLocale: "ko" as const,
     };
     const provider = new FixtureSearchProvider("test/fixtures/search-results.json");
@@ -89,7 +91,7 @@ await test("query hits remain structured across duplicate query matches", async 
     const provider = new FixtureSearchProvider(fixturePath);
     const notifier = new RecordingNotifier();
     await runWatch({
-      config: { searchProvider: "fixture", statePath, dryRun: true, mockSearchFixture: fixturePath, searchCount: 20, searchExtraSnippets: true, alertLocale: "ko" as const },
+      config: { searchProvider: "fixture", statePath, dryRun: true, mockSearchFixture: fixturePath, searchCount: 20, searchExtraSnippets: true, debugSearchResults: false, alertLocale: "ko" as const },
       searchProvider: provider,
       notifier,
       now: new Date("2026-05-16T12:00:00.000Z"),
@@ -119,7 +121,7 @@ await test("newer actionable candidates notify before older candidates", async (
     const provider = new FixtureSearchProvider(fixturePath);
     const notifier = new RecordingNotifier();
     await runWatch({
-      config: { searchProvider: "fixture", statePath, dryRun: true, mockSearchFixture: fixturePath, searchCount: 20, searchExtraSnippets: true, alertLocale: "ko" as const },
+      config: { searchProvider: "fixture", statePath, dryRun: true, mockSearchFixture: fixturePath, searchCount: 20, searchExtraSnippets: true, debugSearchResults: false, alertLocale: "ko" as const },
       searchProvider: provider,
       notifier,
       now: new Date("2026-05-16T12:00:00.000Z"),

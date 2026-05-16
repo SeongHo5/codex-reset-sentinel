@@ -29,6 +29,8 @@ The default workflow schedule is:
 
 With the default 5-query plan, this is roughly 600 Search API requests per 30-day month. If one real workflow run costs about 0.6% of the monthly Brave quota, 6-hour polling is about 72% per 30-day month before manual runs. If your Brave plan/quota differs, tune the cron interval or query plan before enabling the workflow. Use `workflow_dispatch` for urgent manual checks.
 
+Manual backfill: run `workflow_dispatch` with `search_freshness=pm` or `py` if you want to re-scan older indexed posts. This does not change the number of queries per run, but it can surface older actionable posts that were previously classified as non-actionable or not returned.
+
 The default query plan is phrase-led rather than topic-led. It targets reset announcement wording observed in prior @thsottiaux posts:
 
 - `"reset usage limits"`
@@ -50,9 +52,10 @@ Optional workflow env:
 
 | Env | Default | Purpose |
 | --- | --- | --- |
-| `SEARCH_FRESHNESS` | `pw` | Brave freshness filter; `pw` means past week. This is wider than `pd` because X status page dates can be inconsistently interpreted by search indexing. |
+| `SEARCH_FRESHNESS` | `pw` | Brave freshness filter; `pw` means past week. Scheduled monitoring uses this freshness-oriented window; use manual `workflow_dispatch` with `pm` or `py` for backfill. |
 | `SEARCH_COUNT` | `20` | Web results requested per query. Count does not reduce request count. |
 | `SEARCH_EXTRA_SNIPPETS` | `true` | Requests Brave alternative excerpts for each result. This can improve classification evidence without adding query requests. |
+| `DEBUG_SEARCH_RESULTS` | `true` | Logs query-level raw result URLs/titles in Actions output so missed IDs can be diagnosed without storing raw API payloads. |
 | `ALERT_LOCALE` | `ko` | Discord message locale. Currently `ko` and `en` are supported. |
 
 The workflow also requires:
@@ -118,6 +121,10 @@ Provider notes to re-check before changing defaults:
 - Brave Search API: <https://brave.com/search/api/> and <https://api-dashboard.search.brave.com/api-reference/web/search/post>
 - Google Custom Search JSON API: <https://developers.google.com/custom-search/v1/overview> — not the MVP default because Google documents new-customer closure and a transition deadline for existing customers.
 - Microsoft Bing Search APIs: <https://learn.microsoft.com/en-us/lifecycle/announcements/bing-search-api-retirement> — legacy Bing Search APIs retired on August 11, 2025, so they are not implementation targets.
+
+## Search result diagnostics
+
+When `DEBUG_SEARCH_RESULTS=true`, each run prints raw Search API result URLs and compact titles per query before candidate filtering. Use this to determine whether a missed post was absent from Brave results, discarded by URL filtering, or suppressed later by state/classification. The bot still persists only minimal state metadata; raw payloads are not stored.
 
 ## Freshness and correctness limits
 

@@ -10,6 +10,7 @@ export type Config = {
   searchCount: number;
   searchFreshness?: string;
   searchExtraSnippets: boolean;
+  debugSearchResults: boolean;
   alertLocale: AlertLocale;
 };
 
@@ -42,6 +43,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
     searchCount,
     searchFreshness: env.SEARCH_FRESHNESS ?? "pw",
     searchExtraSnippets: parseBoolean(env.SEARCH_EXTRA_SNIPPETS, true),
+    debugSearchResults: parseBoolean(env.DEBUG_SEARCH_RESULTS, true),
     alertLocale: normalizeAlertLocale(env.ALERT_LOCALE),
   };
 }

@@ -47,6 +47,7 @@ export async function runWatch(args: {
   for (const query of DEFAULT_QUERIES) {
     const response = await args.searchProvider.search(query);
     rawResults += response.results.length;
+    logSearchResults({ enabled: args.config.debugSearchResults, query, results: response.results });
 
     for (const result of response.results) {
       const status = extractStatusUrl(result.url);
@@ -126,6 +127,21 @@ export async function runWatch(args: {
     suppressed,
     statePath: args.config.statePath,
   };
+}
+
+function logSearchResults(args: {
+  enabled: boolean;
+  query: string;
+  results: Array<{ url: string; title: string; providerDate?: string }>;
+}): void {
+  if (!args.enabled) return;
+
+  console.log(`[search-results] query=${JSON.stringify(args.query)} count=${args.results.length}`);
+  args.results.forEach((result, index) => {
+    const title = result.title.replace(/\s+/g, " ").trim().slice(0, 160);
+    const date = result.providerDate ? ` date=${JSON.stringify(result.providerDate)}` : "";
+    console.log(`[search-results] ${index + 1}. url=${result.url}${date} title=${JSON.stringify(title)}`);
+  });
 }
 
 function chooseLonger(left: string, right: string): string {
