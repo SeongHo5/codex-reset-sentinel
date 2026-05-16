@@ -1,5 +1,7 @@
 # codex-limit-sentinel
 
+[한국어 README](README.ko.md)
+
 `codex-limit-sentinel` is a personal GitHub Actions monitor for Codex / GPT-5.5 usage-limit reset announcements.
 
 It does **not** call the X API, fetch `x.com` pages, scrape X, or scrape search-result HTML. The MVP discovers indexed `x.com/thsottiaux/status/<id>` URLs through an official Search API provider, classifies provider title/snippet evidence, sends Discord notifications for actionable reset or policy events, and commits watch state back to the repository.
