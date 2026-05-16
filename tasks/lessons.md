@@ -8,3 +8,4 @@
 - Brave Search request volume is driven by API calls, not by OR variants inside a query or count/extra snippet parameters; use same-query variants cautiously to raise recall without increasing scheduled request count.
 - A freshness window can silently exclude historical false negatives; for search monitors, provide a manual backfill freshness override and choose a default window that matches the desired recovery horizon.
 - For search-backed monitors, log per-query raw result URLs/titles in CI before candidate filtering so discovery misses can be separated from parser/classifier/state suppressions.
+- Same-query OR variants can preserve request count but still harm Brave recall; if raw logs show zero results across complex operator queries, revert to simpler five-query patterns and let classifier rules cover wording variants.

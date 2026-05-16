@@ -33,13 +33,13 @@ Manual backfill: run `workflow_dispatch` with `search_freshness=pm` or `py` if y
 
 The default query plan is phrase-led rather than topic-led. It targets reset announcement wording observed in prior @thsottiaux posts:
 
-- `"reset usage limits"`
-- `"reset the rate limits"`
-- `"rate limit reset incoming"`
-- `"reset its own rate limits"`
-- `"reset Codex rate limits"`, plus same-query OR variants such as `"have reset Codex rate limits"`
+- `Codex "usage limits" reset`
+- `Codex "rate limits" reset`
+- `"reset Codex rate limits"`
+- `"I will reset usage limits"`
+- `"GPT-5.5" Codex reset`
 
-This keeps the request count at five searches per run while improving recall for celebration, incident, anniversary, and GPT-5.5 degradation reset posts. OR variants inside one query do not add Search API requests; only the fixed query count controls request volume.
+This keeps the request count at five searches per run while avoiding overly complex OR/operator combinations. Same-query OR variants do not add Search API requests, but Brave documents that complex operator combinations can return no results; keep scheduled queries simple and use classifier rules plus extra snippets for wording coverage.
 
 ## Required GitHub secrets
 

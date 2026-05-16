@@ -11,12 +11,10 @@ await test("query plan is deterministic and scoped to x.com thsottiaux status UR
 await test("query plan covers known reset announcement phrase patterns", () => {
   const joined = DEFAULT_QUERIES.join("\n");
   assert.match(joined, /reset usage limits/);
-  assert.match(joined, /reset the rate limits/);
-  assert.match(joined, /rate limit reset incoming/);
-  assert.match(joined, /reset its own rate limits/);
+  assert.match(joined, /usage limits/);
+  assert.match(joined, /rate limits/);
   assert.match(joined, /reset Codex rate limits/);
-  assert.match(joined, /usage limits reset/);
-  assert.match(joined, /rate limits reset/);
-  assert.match(joined, /have reset Codex rate limits/);
-  assert.match(joined, /OR/);
+  assert.match(joined, /I will reset usage limits/);
+  assert.match(joined, /GPT-5\.5/);
+  assert.doesNotMatch(joined, / OR /);
 });
