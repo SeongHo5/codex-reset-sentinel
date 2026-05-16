@@ -35,6 +35,20 @@ await test("classifies policy change", () => {
   assert.equal(classifySearchResult(candidate("Codex weekly limits are being adjusted")).eventType, "LIMIT_POLICY_CHANGED");
 });
 
+
+await test("classifies known Tibo reset announcement phrases", () => {
+  const samples = [
+    ["Happy Tuesday. Codex has hit 4M active users. To celebrate we will reset the rate limits again in a few hours. Enjoy!", "RESET_PLANNED"],
+    ["Codex incident is mitigated. Apologies for the disruption and rate limit reset incoming.", "RESET_PLANNED"],
+    ["Hi! To celebrate its 1-year anniversary, I have allowed Codex to reset its own rate limits across all plans. Enjoy all the new features.", "RESET_DONE"],
+    ["We are monitoring over the coming hours to fully confirm and I will reset usage limits this evening.", "RESET_PLANNED"],
+  ] as const;
+
+  for (const [text, expected] of samples) {
+    assert.equal(classifySearchResult(candidate(text)).eventType, expected, text);
+  }
+});
+
 await test("suppresses related no-action snippet", () => {
   assert.equal(classifySearchResult(candidate("We are investigating Codex degradation")).eventType, "RELATED_NO_ACTION");
 });
