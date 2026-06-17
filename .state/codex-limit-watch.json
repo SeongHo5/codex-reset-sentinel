@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-17T10:29:38.727Z",
+  "updatedAt": "2026-06-17T14:57:24.377Z",
   "sources": {
     "search:x-thsottiaux": {
       "type": "official-search-api",
@@ -13,15 +13,15 @@
         "site:x.com/thsottiaux/status \"I will reset usage limits\"",
         "site:x.com/thsottiaux/status \"GPT-5.5\" Codex reset"
       ],
-      "lastCheckedAt": "2026-06-17T10:29:38.727Z",
+      "lastCheckedAt": "2026-06-17T14:57:24.377Z",
       "observedResults": {
         "2066956441173323943": {
           "canonicalUrl": "https://x.com/thsottiaux/status/2066956441173323943",
           "firstSeenAt": "2026-06-17T02:57:09.589Z",
-          "lastSeenAt": "2026-06-17T10:29:38.727Z",
-          "evidenceHash": "sha256:0f864a718ccfbfb9c5c8fbe5af3572545a1b7ddb4ffca5650519e87834d234ad",
+          "lastSeenAt": "2026-06-17T14:57:24.377Z",
+          "evidenceHash": "sha256:7572b9432db40ef8bbe10db5f1bc9957a906aadfa145a682383debf96a39faea",
           "lastClassification": "RESET_DONE",
-          "lastClassifiedAt": "2026-06-17T10:29:38.727Z",
+          "lastClassifiedAt": "2026-06-17T14:57:24.377Z",
           "queryHits": [
             "site:x.com/thsottiaux/status Codex \"rate limits\" reset"
           ]
