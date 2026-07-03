@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-03T08:52:27.535Z",
+  "updatedAt": "2026-07-03T13:47:53.547Z",
   "sources": {
     "search:x-thsottiaux": {
       "type": "official-search-api",
@@ -13,7 +13,7 @@
         "site:x.com/thsottiaux/status \"I will reset usage limits\"",
         "site:x.com/thsottiaux/status \"GPT-5.5\" Codex reset"
       ],
-      "lastCheckedAt": "2026-07-03T08:52:27.535Z",
+      "lastCheckedAt": "2026-07-03T13:47:53.547Z",
       "observedResults": {
         "2066956441173323943": {
           "canonicalUrl": "https://x.com/thsottiaux/status/2066956441173323943",
@@ -29,10 +29,10 @@
         "2071381664853319742": {
           "canonicalUrl": "https://x.com/thsottiaux/status/2071381664853319742",
           "firstSeenAt": "2026-06-29T02:46:55.562Z",
-          "lastSeenAt": "2026-07-02T13:43:08.318Z",
-          "evidenceHash": "sha256:fe914754a3414f01b618190548b9a7833286374d460ff85dbfbc9c6018bf379e",
+          "lastSeenAt": "2026-07-03T13:47:53.547Z",
+          "evidenceHash": "sha256:687051b2cb9fb78213637288b6d9a0402cb4fee349733c8585551ee4166a97f8",
           "lastClassification": "RESET_DONE",
-          "lastClassifiedAt": "2026-07-02T13:43:08.318Z",
+          "lastClassifiedAt": "2026-07-03T13:47:53.547Z",
           "queryHits": [
             "site:x.com/thsottiaux/status Codex \"usage limits\" reset"
           ]
@@ -40,10 +40,10 @@
         "2071740419030053227": {
           "canonicalUrl": "https://x.com/thsottiaux/status/2071740419030053227",
           "firstSeenAt": "2026-06-30T08:59:44.327Z",
-          "lastSeenAt": "2026-07-02T13:43:08.318Z",
-          "evidenceHash": "sha256:83c734a245349242830f0c62c5e2b7c2bff967ea37bb188f959258ec6adac4d4",
+          "lastSeenAt": "2026-07-03T13:47:53.547Z",
+          "evidenceHash": "sha256:5e2d3a9e8213c91e3e492712632d6edaea26dd59fe95f598183d3d1e18222df3",
           "lastClassification": "RESET_PLANNED",
-          "lastClassifiedAt": "2026-07-02T13:43:08.318Z",
+          "lastClassifiedAt": "2026-07-03T13:47:53.547Z",
           "queryHits": [
             "site:x.com/thsottiaux/status Codex \"usage limits\" reset"
           ]
