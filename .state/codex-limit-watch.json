@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-08T19:12:55.654Z",
+  "updatedAt": "2026-07-09T02:12:36.650Z",
   "sources": {
     "search:x-thsottiaux": {
       "type": "official-search-api",
@@ -13,7 +13,7 @@
         "site:x.com/thsottiaux/status \"I will reset usage limits\"",
         "site:x.com/thsottiaux/status \"GPT-5.5\" Codex reset"
       ],
-      "lastCheckedAt": "2026-07-08T19:12:55.654Z",
+      "lastCheckedAt": "2026-07-09T02:12:36.650Z",
       "observedResults": {
         "2066956441173323943": {
           "canonicalUrl": "https://x.com/thsottiaux/status/2066956441173323943",
