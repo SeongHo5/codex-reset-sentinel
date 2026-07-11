@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-11T07:43:28.642Z",
+  "updatedAt": "2026-07-11T13:01:38.218Z",
   "sources": {
     "search:x-thsottiaux": {
       "type": "official-search-api",
@@ -13,7 +13,7 @@
         "site:x.com/thsottiaux/status \"I will reset usage limits\"",
         "site:x.com/thsottiaux/status \"GPT-5.5\" Codex reset"
       ],
-      "lastCheckedAt": "2026-07-11T07:43:28.642Z",
+      "lastCheckedAt": "2026-07-11T13:01:38.218Z",
       "observedResults": {
         "2066956441173323943": {
           "canonicalUrl": "https://x.com/thsottiaux/status/2066956441173323943",
@@ -73,10 +73,10 @@
         "2075330198887940337": {
           "canonicalUrl": "https://x.com/thsottiaux/status/2075330198887940337",
           "firstSeenAt": "2026-07-10T09:22:22.470Z",
-          "lastSeenAt": "2026-07-10T19:18:36.398Z",
-          "evidenceHash": "sha256:ca9b4129aba0ba35e46afe6c8391313f47410f40b1d57435264beff5be6eb96b",
+          "lastSeenAt": "2026-07-11T13:01:38.218Z",
+          "evidenceHash": "sha256:e19b411c278aaddc45feb051ad4e62c6a691c16ea8c1630a0fb384c3ed27e39c",
           "lastClassification": "RESET_PLANNED",
-          "lastClassifiedAt": "2026-07-10T19:18:36.398Z",
+          "lastClassifiedAt": "2026-07-11T13:01:38.218Z",
           "queryHits": [
             "site:x.com/thsottiaux/status Codex \"usage limits\" reset"
           ]
@@ -84,10 +84,10 @@
         "2075641131002700120": {
           "canonicalUrl": "https://x.com/thsottiaux/status/2075641131002700120",
           "firstSeenAt": "2026-07-10T19:18:36.398Z",
-          "lastSeenAt": "2026-07-11T07:43:28.642Z",
-          "evidenceHash": "sha256:eca44e684de478bd9bf612c47bae367b4ff1e3bd88df5a11059e2d4982b1693d",
+          "lastSeenAt": "2026-07-11T13:01:38.218Z",
+          "evidenceHash": "sha256:07268ea0a189e8360975e9fe158ed65e9bfd13dd42eec166fbf2de6fc64cac39",
           "lastClassification": "RESET_DONE",
-          "lastClassifiedAt": "2026-07-11T07:43:28.642Z",
+          "lastClassifiedAt": "2026-07-11T13:01:38.218Z",
           "queryHits": [
             "site:x.com/thsottiaux/status Codex \"usage limits\" reset"
           ]
@@ -95,10 +95,10 @@
         "2075820987833274448": {
           "canonicalUrl": "https://x.com/thsottiaux/status/2075820987833274448",
           "firstSeenAt": "2026-07-11T07:43:28.642Z",
-          "lastSeenAt": "2026-07-11T07:43:28.642Z",
-          "evidenceHash": "sha256:195e36335df0610223fe954513a85efc2ef65a2f80920b28f798cc3ed6ffab35",
+          "lastSeenAt": "2026-07-11T13:01:38.218Z",
+          "evidenceHash": "sha256:aede06b782cfc58c08d2dc69886c8414efe55f1c9ca94a19e132908bf6bacfa3",
           "lastClassification": "RESET_DONE",
-          "lastClassifiedAt": "2026-07-11T07:43:28.642Z",
+          "lastClassifiedAt": "2026-07-11T13:01:38.218Z",
           "queryHits": [
             "site:x.com/thsottiaux/status Codex \"usage limits\" reset"
           ]
