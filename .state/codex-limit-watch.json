@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-11T18:50:28.733Z",
+  "updatedAt": "2026-07-12T02:01:44.467Z",
   "sources": {
     "search:x-thsottiaux": {
       "type": "official-search-api",
@@ -13,7 +13,7 @@
         "site:x.com/thsottiaux/status \"I will reset usage limits\"",
         "site:x.com/thsottiaux/status \"GPT-5.5\" Codex reset"
       ],
-      "lastCheckedAt": "2026-07-11T18:50:28.733Z",
+      "lastCheckedAt": "2026-07-12T02:01:44.467Z",
       "observedResults": {
         "2066956441173323943": {
           "canonicalUrl": "https://x.com/thsottiaux/status/2066956441173323943",
@@ -95,10 +95,10 @@
         "2075820987833274448": {
           "canonicalUrl": "https://x.com/thsottiaux/status/2075820987833274448",
           "firstSeenAt": "2026-07-11T07:43:28.642Z",
-          "lastSeenAt": "2026-07-11T18:50:28.733Z",
-          "evidenceHash": "sha256:c4754e20f6e403c7e0d6fe766b8343e955d3be957aa29b0263087e1bb6d2ea01",
+          "lastSeenAt": "2026-07-12T02:01:44.467Z",
+          "evidenceHash": "sha256:3b5dddd0e6f7d330c24a5139330d485d17d4654db3b2ed72fdd4123abb14a0ae",
           "lastClassification": "RESET_DONE",
-          "lastClassifiedAt": "2026-07-11T18:50:28.733Z",
+          "lastClassifiedAt": "2026-07-12T02:01:44.467Z",
           "queryHits": [
             "site:x.com/thsottiaux/status Codex \"usage limits\" reset"
           ]
