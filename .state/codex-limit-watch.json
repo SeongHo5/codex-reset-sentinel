@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-12T08:04:51.695Z",
+  "updatedAt": "2026-07-12T13:02:26.838Z",
   "sources": {
     "search:x-thsottiaux": {
       "type": "official-search-api",
@@ -13,7 +13,7 @@
         "site:x.com/thsottiaux/status \"I will reset usage limits\"",
         "site:x.com/thsottiaux/status \"GPT-5.5\" Codex reset"
       ],
-      "lastCheckedAt": "2026-07-12T08:04:51.695Z",
+      "lastCheckedAt": "2026-07-12T13:02:26.838Z",
       "observedResults": {
         "2066956441173323943": {
           "canonicalUrl": "https://x.com/thsottiaux/status/2066956441173323943",
@@ -73,10 +73,10 @@
         "2075330198887940337": {
           "canonicalUrl": "https://x.com/thsottiaux/status/2075330198887940337",
           "firstSeenAt": "2026-07-10T09:22:22.470Z",
-          "lastSeenAt": "2026-07-11T13:01:38.218Z",
-          "evidenceHash": "sha256:e19b411c278aaddc45feb051ad4e62c6a691c16ea8c1630a0fb384c3ed27e39c",
+          "lastSeenAt": "2026-07-12T13:02:26.838Z",
+          "evidenceHash": "sha256:f4d67a5e018f1ed88cde9da5a49366d17fe667f2f40a2a2331cd958eed260325",
           "lastClassification": "RESET_PLANNED",
-          "lastClassifiedAt": "2026-07-11T13:01:38.218Z",
+          "lastClassifiedAt": "2026-07-12T13:02:26.838Z",
           "queryHits": [
             "site:x.com/thsottiaux/status Codex \"usage limits\" reset"
           ]
@@ -102,6 +102,17 @@
           "queryHits": [
             "site:x.com/thsottiaux/status Codex \"usage limits\" reset"
           ]
+        },
+        "2076054439140720719": {
+          "canonicalUrl": "https://x.com/thsottiaux/status/2076054439140720719",
+          "firstSeenAt": "2026-07-12T13:02:26.838Z",
+          "lastSeenAt": "2026-07-12T13:02:26.838Z",
+          "evidenceHash": "sha256:d51000503d6e9ace2189fc70390dafce46a4020f42a5b430d4b8134050ccd4b5",
+          "lastClassification": "RELATED_NO_ACTION",
+          "lastClassifiedAt": "2026-07-12T13:02:26.838Z",
+          "queryHits": [
+            "site:x.com/thsottiaux/status Codex \"usage limits\" reset"
+          ]
         }
       },
       "notifiedIds": [
@@ -113,7 +124,7 @@
         "2075641131002700120",
         "2075820987833274448"
       ],
-      "maxObservedId": "2075820987833274448"
+      "maxObservedId": "2076054439140720719"
     }
   }
 }
