@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-13T02:03:47.981Z",
+  "updatedAt": "2026-07-13T08:54:37.555Z",
   "sources": {
     "search:x-thsottiaux": {
       "type": "official-search-api",
@@ -13,7 +13,7 @@
         "site:x.com/thsottiaux/status \"I will reset usage limits\"",
         "site:x.com/thsottiaux/status \"GPT-5.5\" Codex reset"
       ],
-      "lastCheckedAt": "2026-07-13T02:03:47.981Z",
+      "lastCheckedAt": "2026-07-13T08:54:37.555Z",
       "observedResults": {
         "2066956441173323943": {
           "canonicalUrl": "https://x.com/thsottiaux/status/2066956441173323943",
@@ -51,10 +51,10 @@
         "2075283734136525255": {
           "canonicalUrl": "https://x.com/thsottiaux/status/2075283734136525255",
           "firstSeenAt": "2026-07-10T02:12:44.944Z",
-          "lastSeenAt": "2026-07-12T08:04:51.695Z",
-          "evidenceHash": "sha256:98b2dd3a47ffae6025d9dd31a1f3d673bf6f7d27a888a5d95542a93b23dc0bee",
+          "lastSeenAt": "2026-07-13T08:54:37.555Z",
+          "evidenceHash": "sha256:1cfe1d6569d582535d58bdbc71cd26212f12365fe5b628707049bf5a6884badb",
           "lastClassification": "RELATED_NO_ACTION",
-          "lastClassifiedAt": "2026-07-12T08:04:51.695Z",
+          "lastClassifiedAt": "2026-07-13T08:54:37.555Z",
           "queryHits": [
             "site:x.com/thsottiaux/status \"GPT-5.5\" Codex reset"
           ]
@@ -84,10 +84,10 @@
         "2075641131002700120": {
           "canonicalUrl": "https://x.com/thsottiaux/status/2075641131002700120",
           "firstSeenAt": "2026-07-10T19:18:36.398Z",
-          "lastSeenAt": "2026-07-12T08:04:51.695Z",
-          "evidenceHash": "sha256:61fd3358c348056f13782e5579e4cb3014ef8d7e63b53e8a557711c565a3a553",
+          "lastSeenAt": "2026-07-13T08:54:37.555Z",
+          "evidenceHash": "sha256:789c1f445087aa4619fc23a2e1647c5ecfb5e7c48e87b0829b3ca0df26fdea37",
           "lastClassification": "RESET_DONE",
-          "lastClassifiedAt": "2026-07-12T08:04:51.695Z",
+          "lastClassifiedAt": "2026-07-13T08:54:37.555Z",
           "queryHits": [
             "site:x.com/thsottiaux/status Codex \"usage limits\" reset"
           ]
@@ -106,12 +106,34 @@
         "2076054439140720719": {
           "canonicalUrl": "https://x.com/thsottiaux/status/2076054439140720719",
           "firstSeenAt": "2026-07-12T13:02:26.838Z",
-          "lastSeenAt": "2026-07-13T02:03:47.981Z",
+          "lastSeenAt": "2026-07-13T08:54:37.555Z",
           "evidenceHash": "sha256:c6689853575b349e49a42305936fb0147e1b35fce90cc1527798372998cec942",
           "lastClassification": "RELATED_NO_ACTION",
-          "lastClassifiedAt": "2026-07-13T02:03:47.981Z",
+          "lastClassifiedAt": "2026-07-13T08:54:37.555Z",
           "queryHits": [
             "site:x.com/thsottiaux/status Codex \"usage limits\" reset"
+          ]
+        },
+        "2076495156757577895": {
+          "canonicalUrl": "https://x.com/thsottiaux/status/2076495156757577895",
+          "firstSeenAt": "2026-07-13T08:54:37.555Z",
+          "lastSeenAt": "2026-07-13T08:54:37.555Z",
+          "evidenceHash": "sha256:03622e6a14188d72f7e00fe8325319608f03d7b702d48c663e637ce50761912a",
+          "lastClassification": "RELATED_NO_ACTION",
+          "lastClassifiedAt": "2026-07-13T08:54:37.555Z",
+          "queryHits": [
+            "site:x.com/thsottiaux/status \"GPT-5.5\" Codex reset"
+          ]
+        },
+        "2076364102612680847": {
+          "canonicalUrl": "https://x.com/thsottiaux/status/2076364102612680847",
+          "firstSeenAt": "2026-07-13T08:54:37.555Z",
+          "lastSeenAt": "2026-07-13T08:54:37.555Z",
+          "evidenceHash": "sha256:ff6bb554dd4b040378b2d637cd9d9201e433ba73ed9f84e28228a7e19b4efd58",
+          "lastClassification": "RELATED_NO_ACTION",
+          "lastClassifiedAt": "2026-07-13T08:54:37.555Z",
+          "queryHits": [
+            "site:x.com/thsottiaux/status Codex \"rate limits\" reset"
           ]
         }
       },
@@ -124,7 +146,7 @@
         "2075641131002700120",
         "2075820987833274448"
       ],
-      "maxObservedId": "2076054439140720719"
+      "maxObservedId": "2076495156757577895"
     }
   }
 }
